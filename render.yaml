@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: tourism-backend
+    runtime: node
+    plan: free
+    rootDir: Backend
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeployTrigger: commit
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+      - key: MONGODB_DB_NAME
+        value: tourism_app
+      - key: JWT_SECRET
+        sync: false
+      - key: CORS_ORIGIN
+        value: "*"
+      - key: REQUEST_BODY_LIMIT_BYTES
+        value: "1048576"
+      - key: MONGODB_SERVER_SELECTION_TIMEOUT_MS
+        value: "10000"

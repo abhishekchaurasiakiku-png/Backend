@@ -1,0 +1,20 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Simple Node.js backend server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "check": "node --check index.js && node --check routes/user.route.js && node --check controllers/user.controller.js && node --check models/user.model.js && node --check scripts/mongodb-healthcheck.js",
+    "check:mongodb": "node scripts/mongodb-healthcheck.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "dependencies": {
+    "mongodb": "^7.2.0"
+  }
+}
